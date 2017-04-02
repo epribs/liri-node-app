@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/epribs/liri-node-app#readme",
   "dependencies": {
+    "spotify": "^0.3.0",
     "twitter": "^1.7.0"
   }
 }

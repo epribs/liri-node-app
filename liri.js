@@ -1,5 +1,4 @@
 var twitterKeys = require("./keys");
-console.log(twitterKeys);
 var ck = twitterKeys.twitterKeys.consumer_key;
 var cs = twitterKeys.twitterKeys.consumer_secret;
 var atk = twitterKeys.twitterKeys.access_token_key;
@@ -13,16 +12,16 @@ var client = new Twitter({
   access_token_secret: ats
 });
 
-var params = {screen_name: 'epribs'};
-client.get('statuses/user_timeline', params, function(error, tweets, response) {
-  if (!error) {
-  	var ts = tweets
-  	console.log(ts.length);
-  	for (var i = 0; i < ts.length; i++){
-  		console.log("--------\n" + ts[i].created_at.toString() + "\n" + ts[i].text + "\n");
-  	}
-  }
-});
+// var params = {screen_name: 'epribs'};
+// client.get('statuses/user_timeline', params, function(error, tweets, response) {
+//   if (!error) {
+//   	var ts = tweets
+//   	console.log(ts.length);
+//   	for (var i = 0; i < ts.length; i++){
+//   		console.log("--------\n" + ts[i].created_at.toString() + "\n" + ts[i].text + "\n");
+//   	}
+//   }
+// });
 
 
 var spotify = require('spotify');
@@ -32,6 +31,14 @@ spotify.search({ type: 'track', query: 'dancing in the moonlight' }, function(er
         console.log('Error occurred: ' + err);
         return;
     }
-    console.log(data);
+    var items = data.tracks.items[0];
+    // Artist(s)
+    console.log("Artist: " + items.album.artists[0].name)
+		// The song's name
+		console.log("Song: " + items.name)
+		// A preview link of the song from Spotify
+		console.log("Preview: " + items.preview_url)
+		// The album that the song is from
+		console.log("Album: " + items.album.name)
 });
 

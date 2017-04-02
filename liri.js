@@ -96,10 +96,10 @@ if (appArg === "my-tweets") {
 		var appArg = data[0];
 		var nodeArgs = data[1];
 		liri();
-		return;
 	});
 }
 }
+liri();
 
 
 

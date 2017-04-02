@@ -1,7 +1,6 @@
 var twitterKeys = require("./keys");
 console.log(twitterKeys);
 var ck = twitterKeys.twitterKeys.consumer_key;
-console.log(ck);
 var cs = twitterKeys.twitterKeys.consumer_secret;
 var atk = twitterKeys.twitterKeys.access_token_key;
 var ats = twitterKeys.twitterKeys.access_token_secret;
@@ -20,3 +19,15 @@ client.get('statuses/user_timeline', params, function(error, tweets, response) {
     console.log(tweets);
   }
 });
+
+
+var spotify = require('spotify');
+ 
+spotify.search({ type: 'track', query: 'dancing in the moonlight' }, function(err, data) {
+    if ( err ) {
+        console.log('Error occurred: ' + err);
+        return;
+    }
+    console.log(data);
+});
+

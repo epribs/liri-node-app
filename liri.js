@@ -16,7 +16,11 @@ var client = new Twitter({
 var params = {screen_name: 'epribs'};
 client.get('statuses/user_timeline', params, function(error, tweets, response) {
   if (!error) {
-    console.log(tweets);
+  	var ts = tweets
+  	console.log(ts.length);
+  	for (var i = 0; i < ts.length; i++){
+  		console.log("--------\n" + ts[i].created_at.toString() + "\n" + ts[i].text + "\n");
+  	}
   }
 });
 

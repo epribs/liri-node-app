@@ -84,19 +84,25 @@ request(url, function (error, response, data) {
 
 var appArg = process.argv[2];
 function liri() {
-if (appArg === "my-tweets") {
-	twit();
-} else if (appArg === "spotify-this-song") {
-	spot();
-} else if (appArg === "movie-this") {
-	movie();
-} else if (appArg === "do-what-it-says") {
+if (appArg === "do-what-it-says") {
 	fs.readFile("random.txt", "utf8", function(err, data) {
+		if ( err ) {
+        console.log('Error occurred: ' + err);
+        return;
+    }
 		data = data.split(",");
 		var appArg = data[0];
 		var nodeArgs = data[1];
-		liri();
 	});
+	liri();
+} else {
+	if (appArg === "my-tweets") {
+		twit();
+	} else if (appArg === "spotify-this-song") {
+		spot();
+	} else if (appArg === "movie-this") {
+		movie();
+	} 
 }
 }
 liri();
